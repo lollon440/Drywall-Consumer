@@ -31,6 +31,13 @@ public class SlashCommandExamples : InteractionModuleBase<SocketInteractionConte
         int increase = Random.Shared.Next(10, 20);
         Player p = Program.GetOrCreatePlayer(Context.User.Id);
         p.balance += increase;
+        for(int i = 0; i>p.pets.Count; ++i)
+        {
+            if (p.pets[i].name.Contains ("lillian"))
+            {
+                increase *=  2;
+            }
+        }
         await DeferAsync();
 
         await ModifyOriginalResponseAsync(msg =>
