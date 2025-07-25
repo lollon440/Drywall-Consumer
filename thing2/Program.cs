@@ -69,12 +69,11 @@ class Program
     public static Player GetOrCreatePlayer(ulong id)
     {
         Player player;
-        if(userData.TryGetValue(id,out player))
+        if (!userData.TryGetValue(id,out player))
         {
             player = new Player();
             userData.Add(id, player);
             Console.WriteLine("Created new player with ID:" + id);
-
         }
         return player;
     }
